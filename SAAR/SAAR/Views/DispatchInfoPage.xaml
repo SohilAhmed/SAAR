@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:data="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable"
+             xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:tabview="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             x:Class="SAAR.Views.DispatchInfoPage"
+             Title="Dispatch Information">
+    <ContentPage.Content>
+
+        <tabview:SfTabView  VisibleHeaderCount="3">
+            <tabview:SfTabView.Items>
+                <tabview:SfTabItem Title="Last 2 Days" TitleFontSize="Medium">
+                    <tabview:SfTabItem.Content>
+                        <StackLayout>
+                            <Frame HasShadow="True" BorderColor="Black">
+                                <StackLayout Spacing="5">
+                                    <Label x:Name="Total2DaysOuts" HorizontalOptions="Center" TextColor="{StaticResource Primary}" FontSize="Large" />
+                                    <Grid HeightRequest="45" RowSpacing="0" ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.8*" />
+                                            <ColumnDefinition Width="0.0*" />
+                                            <ColumnDefinition Width="0.3*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label TextColor="Black" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="Party" />
+                                        <Label TextColor="Black" Grid.Column="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="Amount" FontSize="Medium" LineBreakMode="CharacterWrap" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                            <listview:SfListView x:Name="listView2Days" ItemsSource="{Binding Dispatch2Days}" SelectionBackgroundColor="Orange" IsStickyGroupHeader="True" AllowGroupExpandCollapse="True">
+                                <listview:SfListView.DataSource>
+                                    <data:DataSource>
+                                        <data:DataSource.GroupDescriptors>
+                                            <data:GroupDescriptor PropertyName="Comp_Name" />
+                                        </data:DataSource.GroupDescriptors>
+                                    </data:DataSource>
+                                </listview:SfListView.DataSource>
+                                <listview:SfListView.GroupHeaderTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <ViewCell.View>
+                                                <StackLayout BackgroundColor="LightGreen">
+                                                    <Label Text="{Binding Key}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" Margin="0,4,0,0" />
+                                                </StackLayout>
+                                            </ViewCell.View>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </listview:SfListView.GroupHeaderTemplate>
+                                <listview:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell Height="10" AutomationProperties.IsInAccessibleTree="True">
+                                            <Grid Padding="16,0,16,0" HeightRequest="45" RowSpacing="0" ColumnSpacing="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.8*" />
+                                                    <ColumnDefinition Width="0.0*" />
+                                                    <ColumnDefinition Width="0.3*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label TextColor="Black" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="{Binding Party}" />
+                                                <Label TextColor="Black" Grid.Column="1" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="{Binding Comp_GstNo}" FontSize="Medium" IsVisible="False" />
+                                                <Label TextColor="Black" Grid.Column="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="{Binding NetAmount}" FontSize="Medium" />
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </listview:SfListView.ItemTemplate>
+                            </listview:SfListView>
+                        </StackLayout>
+                    </tabview:SfTabItem.Content>
+                </tabview:SfTabItem>
+
+                <tabview:SfTabItem Title="Last 7 Days"  TitleFontSize="Medium">
+                    <tabview:SfTabItem.Content>
+                        <StackLayout>
+                            <Frame HasShadow="True" BorderColor="Black">
+                                <StackLayout Spacing="5">
+                                    <Label x:Name="Total7DaysOuts" HorizontalOptions="Center" TextColor="{StaticResource Primary}" FontSize="Large" />
+                                    <Grid HeightRequest="45" RowSpacing="0" ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.8*" />
+                                            <ColumnDefinition Width="0.0*" />
+                                            <ColumnDefinition Width="0.3*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label TextColor="Black" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="Party" />
+                                        <Label TextColor="Black" Grid.Column="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="Amount" FontSize="Medium" LineBreakMode="CharacterWrap" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                            <listview:SfListView x:Name="listView7Days" ItemsSource="{Binding Dispatch7Days}" SelectionBackgroundColor="Orange" IsStickyGroupHeader="True" AllowGroupExpandCollapse="True">
+                                <listview:SfListView.DataSource>
+                                    <data:DataSource>
+                                        <data:DataSource.GroupDescriptors>
+                                            <data:GroupDescriptor PropertyName="Comp_Name" />
+                                        </data:DataSource.GroupDescriptors>
+                                    </data:DataSource>
+                                </listview:SfListView.DataSource>
+                                <listview:SfListView.GroupHeaderTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <ViewCell.View>
+                                                <StackLayout BackgroundColor="LightGreen">
+                                                    <Label Text="{Binding Key}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" Margin="0,4,0,0" />
+                                                </StackLayout>
+                                            </ViewCell.View>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </listview:SfListView.GroupHeaderTemplate>
+                                <listview:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell Height="10" AutomationProperties.IsInAccessibleTree="True">
+                                            <Grid Padding="16,0,16,0" HeightRequest="45" RowSpacing="0" ColumnSpacing="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.8*" />
+                                                    <ColumnDefinition Width="0.0*" />
+                                                    <ColumnDefinition Width="0.3*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label TextColor="Black" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="{Binding Party}" />
+                                                <Label TextColor="Black" Grid.Column="1" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="{Binding Comp_GstNo}" FontSize="Medium" IsVisible="False" />
+                                                <Label TextColor="Black" Grid.Column="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="{Binding NetAmount}" FontSize="Medium" />
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </listview:SfListView.ItemTemplate>
+                            </listview:SfListView>
+                        </StackLayout>
+                    </tabview:SfTabItem.Content>
+                </tabview:SfTabItem>
+
+                <tabview:SfTabItem Title="All Days"  TitleFontSize="Medium">
+                    <tabview:SfTabItem.Content>
+                        <StackLayout>
+                            <Frame HasShadow="True" BorderColor="Black">
+                                <StackLayout Spacing="5">
+                                    <Label x:Name="TotalAllDaysOuts" HorizontalOptions="Center" TextColor="{StaticResource Primary}" FontSize="Large" />
+                                    <Grid HeightRequest="45" RowSpacing="0" ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.8*" />
+                                            <ColumnDefinition Width="0.0*" />
+                                            <ColumnDefinition Width="0.3*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label TextColor="Black" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="Party" />
+                                        <Label TextColor="Black" Grid.Column="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="Amount" FontSize="Medium" LineBreakMode="CharacterWrap" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                            <listview:SfListView x:Name="listViewAllDays" ItemsSource="{Binding DispatchAllDays}" SelectionBackgroundColor="Orange" IsStickyGroupHeader="True" AllowGroupExpandCollapse="True">
+                                <listview:SfListView.DataSource>
+                                    <data:DataSource>
+                                        <data:DataSource.GroupDescriptors>
+                                            <data:GroupDescriptor PropertyName="Comp_Name" />
+                                        </data:DataSource.GroupDescriptors>
+                                    </data:DataSource>
+                                </listview:SfListView.DataSource>
+                                <listview:SfListView.GroupHeaderTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <ViewCell.View>
+                                                <StackLayout BackgroundColor="LightGreen">
+                                                    <Label Text="{Binding Key}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" Margin="0,4,0,0" />
+                                                </StackLayout>
+                                            </ViewCell.View>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </listview:SfListView.GroupHeaderTemplate>
+                                <listview:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell Height="10" AutomationProperties.IsInAccessibleTree="True">
+                                            <Grid Padding="16,0,16,0" HeightRequest="45" RowSpacing="0" ColumnSpacing="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.8*" />
+                                                    <ColumnDefinition Width="0.0*" />
+                                                    <ColumnDefinition Width="0.3*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label TextColor="Black" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="{Binding Party}" />
+                                                <Label TextColor="Black" Grid.Column="1" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="{Binding Comp_GstNo}" FontSize="Medium" IsVisible="False" />
+                                                <Label TextColor="Black" Grid.Column="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Text="{Binding NetAmount}" FontSize="Medium" />
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </listview:SfListView.ItemTemplate>
+                            </listview:SfListView>
+                        </StackLayout>
+                    </tabview:SfTabItem.Content>
+                </tabview:SfTabItem>
+            </tabview:SfTabView.Items>
+        </tabview:SfTabView>
+    </ContentPage.Content>
+</ContentPage>

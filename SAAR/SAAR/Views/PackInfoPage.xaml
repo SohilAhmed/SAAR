@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAAR.Views.PackInfoPage" Title="Pack Info">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BorderColor="Black">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="0.7*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label FontSize="Medium" TextColor="Brown" Text="Company" Grid.Row="0" Grid.Column="0" />
+                    <Label FontSize="Medium" x:Name="CompanyName" Grid.Row="0" Grid.Column="1" />
+
+                    <Label FontSize="Medium" TextColor="Brown" Text="Party" Grid.Row="1" Grid.Column="0" />
+                    <Label FontSize="Medium" x:Name="PartyName" Grid.Row="1" Grid.Column="1" />
+
+                    <Label FontSize="Medium" TextColor="Brown" Text="Bill No" Grid.Row="2" Grid.Column="0" />
+                    <Label FontSize="Medium" x:Name="Bill_No" Grid.Row="2" Grid.Column="1" />
+
+                    <Label FontSize="Medium" TextColor="Brown" Text="Bill Date" Grid.Row="3" Grid.Column="0" />
+                    <Label FontSize="Medium" x:Name="Bill_Date" Grid.Row="3" Grid.Column="1" />
+
+                    <Label FontSize="Medium" TextColor="Brown" Text="CaseNo" Grid.Row="4" Grid.Column="0" />
+                    <Label FontSize="Medium" x:Name="CaseNo" Grid.Row="4" Grid.Column="1" />
+
+                    <Label FontSize="Medium" TextColor="Brown" Text="Total Qty" Grid.Row="5" Grid.Column="0" />
+                    <Label FontSize="Medium" x:Name="TotalQty" Grid.Row="5" Grid.Column="1" />
+
+                    <Label FontSize="Medium" TextColor="Brown" Text="Total Pcs" Grid.Row="6" Grid.Column="0" />
+                    <Label FontSize="Medium" x:Name="TotalPcs" Grid.Row="6" Grid.Column="1" />
+                </Grid>
+            </Frame>
+
+            <ListView x:Name="ListD" ItemsSource="{Binding PackInfoData}" SeparatorColor="Gray" SelectionMode="Single" RowHeight="175">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Padding="10,10,0,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.3*" />
+                                        <ColumnDefinition Width="0.7*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label FontSize="Medium" TextColor="Maroon" Text="Quality" Grid.Row="0" Grid.Column="0" />
+                                    <Label FontSize="Medium" Text="{Binding Item_Name}" Grid.Row="0" Grid.Column="1" />
+
+                                    <Label FontSize="Medium" TextColor="Maroon" Text="Shade" Grid.Row="1" Grid.Column="0" />
+                                    <Label FontSize="Medium" Text="{Binding Shade}" Grid.Row="1" Grid.Column="1" />
+
+                                    <Label FontSize="Medium" TextColor="Maroon" Text="Design No" Grid.Row="2" Grid.Column="0" />
+                                    <Label FontSize="Medium" Text="{Binding Des_No}" Grid.Row="2" Grid.Column="1" />
+
+                                    <Label FontSize="Medium" TextColor="Maroon" Text="No Pcs" Grid.Row="3" Grid.Column="0" />
+                                    <Label FontSize="Medium" Text="{Binding No_Pcs}" Grid.Row="3" Grid.Column="1" />
+
+                                    <Label FontSize="Medium" TextColor="Maroon" Text="Qty" Grid.Row="4" Grid.Column="0" />
+                                    <Label FontSize="Medium" Text="{Binding Qty}" Grid.Row="4" Grid.Column="1" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

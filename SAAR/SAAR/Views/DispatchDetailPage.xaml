@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAAR.Views.DispatchDetailPage"
+             Title="Dispatch Details">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame HasShadow="True" BorderColor="Black">
+                <StackLayout Spacing="5">
+                    <Label x:Name="TotalOuts" HorizontalOptions="Center" TextColor="{StaticResource Primary}" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Grid HeightRequest="70" RowSpacing="10" ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="Bill_No" />
+
+                        <Label Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" Text="Lr No" HorizontalOptions="End" />
+
+                        <Label Grid.Row="1" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" Text="Transport" HorizontalOptions="Start" />
+
+                        <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="End" LineBreakMode="NoWrap" Text="Bill Date" />
+
+                        <Label Grid.Row="1" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="End" Text="Lr Date" HorizontalOptions="End" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <ListView x:Name="ListD" ItemsSource="{Binding DispatchPartyData}" SeparatorColor="Gray" RowHeight="60">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="60">
+                            <ViewCell.View>
+                                <Grid Padding="10,0,0,0" HeightRequest="80" ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="End" Text="{Binding Bill_No}" />
+
+                                    <Label Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="End" Text="{Binding Lrno}" HorizontalOptions="Start" />
+
+                                    <Label Grid.Row="0" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Start" Text="{Binding Fvno}" IsVisible="False" HorizontalOptions="Start" />
+
+                                    <Label Grid.Row="1" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Start" Text="{Binding Transport}" HorizontalOptions="Start" />
+
+                                    <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Start" LineBreakMode="NoWrap" Text="{Binding Bill_date, StringFormat='{0:dd/MMM/yyyy}'}" />
+
+                                    <Label Grid.Row="1" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Start"  Text="{Binding Lrdate, StringFormat='{0:dd/MMM/yyyy}'}" HorizontalOptions="End" LineBreakMode="NoWrap" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Frame HasShadow="True" BorderColor="Black">
+                <StackLayout Spacing="5">
+                    <Grid HeightRequest="50" RowSpacing="0" ColumnSpacing="0">
+                        <Label x:Name="Total" Grid.Row="0" TextColor="Red" FontSize="Medium" VerticalTextAlignment="End" HorizontalOptions="EndAndExpand" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

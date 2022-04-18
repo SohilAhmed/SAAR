@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAAR.Views.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout" Clicked="LogoutCicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Frame HasShadow="True">
+                <StackLayout>
+                    <Label x:Name="FlapCompanyName"
+                       Text="{Binding CompanyName}"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+
+                    <Label x:Name="FlapCompanyGSTNO"
+                       Text="{Binding GSTNO}"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+
+                    <Label x:Name="InfoLabel"
+                       Text="{Binding MobileNo}"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+                </StackLayout>
+            </Frame>
+
+            <Frame HasShadow="True" x:Name="DispatceFrame">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="DispatchInfoClicked" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Image  Source="transport.png" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"  Aspect="Fill" HeightRequest="64" WidthRequest="64" />
+
+                    <Label Text="Dispatch" TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" LineBreakMode="NoWrap" FontSize="28" />
+                </StackLayout>
+            </Frame>
+
+            <Frame HasShadow="True" x:Name="OutstandingsFrame">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OutstandingsFrameClicked" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Image  Source="outsLogo.png" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"  Aspect="Fill" HeightRequest="64" WidthRequest="64" />
+
+                    <Label Text="Outstandings" TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" LineBreakMode="NoWrap" FontSize="28" />
+                </StackLayout>
+            </Frame>
+
+            <!--<Frame HasShadow="True" x:Name="FrameItem3">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OrderInfoClicked" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Image  Source="outsLogo.png" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"  Aspect="Fill" HeightRequest="64" WidthRequest="64" />
+
+                    <Label Text="Order Information" TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" LineBreakMode="NoWrap" FontSize="28" />
+                </StackLayout>
+            </Frame>-->
+
+            <Frame BorderColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PrivacyClick" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <Grid>
+                    <Label Text="Privacy And Policies"
+                   Grid.Row="0" FontSize="Large" />
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

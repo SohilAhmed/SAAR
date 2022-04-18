@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAAR.Views.OutstandingDetailsPage"
+             Title="Outstanding Details">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame HasShadow="True" BorderColor="Black">
+                <StackLayout Spacing="5">
+                    <Label x:Name="TotalOuts" HorizontalOptions="Center" TextColor="{StaticResource Primary}" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Grid HeightRequest="50" RowSpacing="0" ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="Bill No" />
+                        <Label Grid.Row="0" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" Text="Bill Date" />
+                        <Label Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" Text="Due Amount" HorizontalOptions="End" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <ListView x:Name="ListD" ItemsSource="{Binding OutstandingPartyData}" SeparatorColor="Gray">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Padding="10,0,15,10" RowSpacing="0" ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="{Binding Bill_No}" />
+                                    <Label Grid.Row="0" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" LineBreakMode="NoWrap" Text="{Binding Bill_date, StringFormat='{0:dd/MMM/yyyy}'}" />
+                                    <Label Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" Text="{Binding Due_Amt}" HorizontalOptions="End" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Frame HasShadow="True" BorderColor="Black">
+                <StackLayout Spacing="5">
+                    <Grid HeightRequest="50" RowSpacing="0" ColumnSpacing="0">
+                        <Label x:Name="Total" Grid.Row="0" TextColor="Red" FontSize="Medium" VerticalTextAlignment="End" HorizontalOptions="EndAndExpand" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

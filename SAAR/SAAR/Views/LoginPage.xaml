@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             x:Class="SAAR.Views.LoginPage">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Frame BackgroundColor="Maroon" Padding="24" CornerRadius="0">
+                <Label x:Name="HeaderLable" Text="Welcome to SAAR Mobile App!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" />
+            </Frame>
+
+            <Label Text="Mobile No" TextColor="Black" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="5,10,5,10" />
+
+            <Entry FontSize="Medium" Placeholder="please enter Mobile Number" BackgroundColor="White" TextColor="Black" Keyboard="Numeric" x:Name="MobileNo" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="5,10,5,10" IsEnabled="{Binding NumberEnabled}" />
+
+            <ProgressBar Progress="0.5" x:Name="Progess" />
+
+            <Frame BorderColor="Black" Margin="10,0,0,0" x:Name="OTPFrame">
+                <StackLayout>
+                    <Entry Keyboard="Numeric" TextColor="Black" PlaceholderColor="Gray" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Placeholder="Enter OTP" x:Name="OPTText" />
+
+                    <Button Text="Validate OTP" Clicked="Button_Clicked" FontSize="Medium" BackgroundColor="Maroon" TextColor="White" Margin="5,10,5,10" WidthRequest="100" />
+                </StackLayout>
+            </Frame>
+
+            <Button x:Name="LoginButton" Text="Login" FontSize="Medium" BackgroundColor="Maroon" TextColor="White" Margin="5,10,5,10" WidthRequest="100" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
